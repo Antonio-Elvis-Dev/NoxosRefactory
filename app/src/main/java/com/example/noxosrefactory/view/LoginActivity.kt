@@ -37,22 +37,26 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         if (v.id == R.id.btnLogin) {
             handleLogin()
+        } else if (v.id == R.id.txtRegister) {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
+
+
     }
 
     private fun observe() {
         viewModel.login
-            .observe(this
+            .observe(
+                this
             ) {
-                startActivity(Intent(applicationContext, MainActivity::class.java))
+                if (it.status()) {
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    finish()
+                }
+                else {
+                    Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
+                }
             }
-
-        viewModel.failure
-            .observe(this
-            ) {
-               Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
-            }
-
     }
 
 

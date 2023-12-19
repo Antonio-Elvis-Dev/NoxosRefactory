@@ -43,8 +43,11 @@ class PersonRepository(val context: Context) {
         })
     }
 
-    private fun failResponse(str: String): String {
-        return Gson().fromJson(str, String::class.java)
-    }
+//    private fun failResponse(str: String): String {
+//        return Gson().fromJson(str, String::class.java)  RECEBE UMA STRING SIMPLES
+//    }
 
+    private fun failResponse(str: String): String { // RECEBE UM OBJETO JSON
+        return str
+    }
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.noxosrefactory.BottomNavigation
 import com.example.noxosrefactory.MainActivity
 import com.example.noxosrefactory.R
 
@@ -50,7 +51,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 this
             ) {
                 if (it.status()) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    startActivity(Intent(applicationContext, BottomNavigation::class.java))
                     finish()
                 }
                 else {

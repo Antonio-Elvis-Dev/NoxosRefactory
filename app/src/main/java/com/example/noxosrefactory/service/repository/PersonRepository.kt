@@ -8,7 +8,6 @@ import com.example.noxosrefactory.service.model.LoginModel
 import com.example.noxosrefactory.service.model.PersonModel
 import com.example.noxosrefactory.service.repository.remote.PersonService
 import com.example.noxosrefactory.service.repository.remote.RetrofitClient
-import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,10 +43,10 @@ class PersonRepository(val context: Context) {
     }
 
 //    private fun failResponse(str: String): String {
-//        return Gson().fromJson(str, String::class.java)  RECEBE UMA STRING SIMPLES
+//        return Gson().fromJson(str, String::class.java)  retorna UMA STRING SIMPLES
 //    }
 
-    private fun failResponse(str: String): String { // RECEBE UM OBJETO JSON
+    private fun failResponse(str: String): String { // retorna UM OBJETO JSON
         return str
     }
 }

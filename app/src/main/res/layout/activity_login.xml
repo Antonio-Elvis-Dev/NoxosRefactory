@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:clickable="true"
-            android:onClick="openViewRegister"
+
             android:text="Não tenho uma conta"
             android:textColor="#D1CBCB"
             app:layout_constraintEnd_toEndOf="parent"

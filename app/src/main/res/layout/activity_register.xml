@@ -77,12 +77,11 @@
         app:srcCompat="@drawable/logo_transparente" />
 
     <TextView
-        android:id="@+id/telaLogin"
+        android:id="@+id/txtLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:clickable="true"
-        android:onClick="openViewHome"
         android:text="Já tenho uma conta"
         android:textColor="#D1CBCB"
         app:layout_constraintEnd_toEndOf="parent"

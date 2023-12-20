@@ -10,6 +10,8 @@ import com.example.noxosrefactory.service.model.PersonModel
 import com.example.noxosrefactory.service.model.ValidationModel
 import com.example.noxosrefactory.service.repository.PersonRepository
 import com.example.noxosrefactory.service.repository.SecurityPreferences
+import com.example.noxosrefactory.service.repository.remote.RetrofitClient
+import retrofit2.Retrofit
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private val personRepository = PersonRepository(application.applicationContext)
@@ -27,6 +29,9 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 securityPreferences.store(NoxosConstants.SHARED.PERSON_KEY, result.id)
                 securityPreferences.store(NoxosConstants.SHARED.PERSON_NAME, result.name)
                 securityPreferences.store(NoxosConstants.SHARED.PERSON_EMAIL, result.email)
+
+                RetrofitClient.addHeaders(result.token)
+
                 _login.value = ValidationModel()
             }
 
@@ -42,4 +47,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
 
     fun verifyLoggedUser() {}
+
+
 }

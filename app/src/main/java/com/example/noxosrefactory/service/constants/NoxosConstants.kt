@@ -13,4 +13,7 @@ class NoxosConstants {
         const val PERSON_NAME = "personname"
         const val PERSON_EMAIL = "PERSONEMAIL"
     }
+    object HEADER{
+        const val TOKEN_KEY = "token"
+    }
 }

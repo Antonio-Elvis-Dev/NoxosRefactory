@@ -1,6 +1,6 @@
 package com.example.noxosrefactory.service.repository.remote
 
-import com.example.noxosrefactory.service.model.LoginModel
+import com.example.noxosrefactory.service.model.LoginDataModel
 import com.example.noxosrefactory.service.model.PersonModel
 import com.example.noxosrefactory.service.model.PersonRegisterModel
 import retrofit2.Call
@@ -12,7 +12,7 @@ import retrofit2.http.POST
 interface PersonService {
 
     @POST("session")
-    fun login(@Body loginModel: LoginModel): Call<PersonModel> // bug de login resolvido com um data class -> LoginModel
+    fun login(@Body loginDataModel: LoginDataModel): Call<PersonModel> // bug de login resolvido com um data class -> LoginModel
 
 //    fun login(
 //        @Field("email") email: String,

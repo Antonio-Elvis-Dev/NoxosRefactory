@@ -31,6 +31,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnLogin.setOnClickListener(this)
         binding.txtRegister.setOnClickListener(this)
 
+
+        viewModel.verifyLoggedUser()
+
         observe()
     }
 
@@ -58,6 +61,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
                 }
             }
+
+        viewModel.loggedUser.observe(this){
+            if(it){
+                startActivity(Intent(applicationContext, BottomNavigation::class.java))
+                finish()
+            }
+        }
     }
 
 

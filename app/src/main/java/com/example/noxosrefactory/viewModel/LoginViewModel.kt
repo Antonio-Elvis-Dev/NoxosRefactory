@@ -16,9 +16,12 @@ import retrofit2.Retrofit
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private val personRepository = PersonRepository(application.applicationContext)
     private val securityPreferences = SecurityPreferences(application.applicationContext)
-    private val _login = MutableLiveData<ValidationModel>()
 
+    private val _login = MutableLiveData<ValidationModel>()
     val login: LiveData<ValidationModel> = _login
+
+    private val _loggedUser = MutableLiveData<Boolean>()
+    val loggedUser: LiveData<Boolean> = _loggedUser
 
 
     fun doLogin(email: String, password: String) {
@@ -45,8 +48,13 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
+    fun verifyLoggedUser() {
 
-    fun verifyLoggedUser() {}
+        val token = securityPreferences.get(NoxosConstants.SHARED.TOKEN_KEY)
+        RetrofitClient.addHeaders(token)
+
+       _loggedUser.value = (token != "")
+    }
 
 
 }

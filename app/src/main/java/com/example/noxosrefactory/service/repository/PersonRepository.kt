@@ -4,7 +4,7 @@ import android.content.Context
 import com.example.noxosrefactory.R
 import com.example.noxosrefactory.service.constants.NoxosConstants
 import com.example.noxosrefactory.service.listener.APIListener
-import com.example.noxosrefactory.service.model.LoginModel
+import com.example.noxosrefactory.service.model.LoginDataModel
 import com.example.noxosrefactory.service.model.PersonModel
 import com.example.noxosrefactory.service.repository.remote.PersonService
 import com.example.noxosrefactory.service.repository.remote.RetrofitClient
@@ -22,7 +22,7 @@ class PersonRepository(val context: Context) {
     * onResponse - 404 - String
     * */
     fun login(email: String, password: String, listener: APIListener<PersonModel>) {
-        val call = remote.login(LoginModel(email, password))
+        val call = remote.login(LoginDataModel(email, password))
         call.enqueue(object : Callback<PersonModel> {
 
             override fun onResponse(call: Call<PersonModel>, response: Response<PersonModel>) {

@@ -13,7 +13,7 @@ class OrderModel {
     @SerializedName("id")
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    var id: String = ""
+    var id: Int = 0
 
     @SerializedName("table")
     @ColumnInfo(name = "table")
@@ -33,11 +33,11 @@ class OrderModel {
 
     @SerializedName("created_at")
     @ColumnInfo(name = "created_at")
-    lateinit var create_at: DateTimeFormatter
+    lateinit var create_at: String
 
     @SerializedName("updated_at")
     @ColumnInfo(name = "updated_at")
-    lateinit var updated_at: DateTimeFormatter
+    lateinit var updated_at: String
 }
 
 

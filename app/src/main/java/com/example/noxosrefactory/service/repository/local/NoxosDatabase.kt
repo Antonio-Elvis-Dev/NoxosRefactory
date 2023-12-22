@@ -7,10 +7,10 @@ import androidx.room.RoomDatabase
 import com.example.noxosrefactory.service.model.OrderDataModel
 import com.example.noxosrefactory.service.model.OrderModel
 
+@Database(entities = [OrderModel::class], version = 1)
 abstract class NoxosDatabase : RoomDatabase() {
 
-    @Database(entities = [OrderDataModel::class], version = 1)
-
+abstract  fun orderDAO():OrderDAO
     companion object {
         private lateinit var INSTANCE: NoxosDatabase
 

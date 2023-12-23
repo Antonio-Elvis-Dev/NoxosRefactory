@@ -22,8 +22,8 @@ class BottomNavigation : AppCompatActivity() {
 
         replaceFragment(HomeFragment())
 
-        binding.navView.setOnClickListener {
-            when (it.id) {
+        binding.bottonNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
                 R.id.ic_home -> replaceFragment(HomeFragment())
                 R.id.ic_search -> replaceFragment(SearchFragment())
                 R.id.ic_order -> replaceFragment(OrderFragment())
@@ -31,14 +31,12 @@ class BottomNavigation : AppCompatActivity() {
             }
             true
         }
-
     }
 
-    private fun replaceFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction()
-            .apply {
-                replace(R.id.fl_wrapper, fragment)
-                commit()
-            }
-
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
+    }
 }
